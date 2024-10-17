@@ -23,6 +23,11 @@ const Footer = () => {
       name: "Search",
       link: "search"
     },
+    {
+      icon: "fas fa-user-circle",
+      name: "Account",
+      link: "account"
+    },
   ];
 
   return (

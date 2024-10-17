@@ -14,7 +14,7 @@ const Trending = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${REACT_APP_API_KEY}&page=${page}`
-  const { data, loading, error } = useFetch<Result>(url);
+  const { data, loading, error } = useFetch<Result>(url, false);
 
 
   // if (loading) return (

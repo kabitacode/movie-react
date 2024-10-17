@@ -17,7 +17,7 @@ const MovieDetail = () => {
     const { id } = useParams();
     const [page, setPage] = useState(1);
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_API_KEY}`
-    const { data, loading, error } = useFetch<Result>(url);
+    const { data, loading, error } = useFetch<Result>(url, false);
 
 
     if (loading) return <div className='items-center flex justify-center'><p className='text-white text-lg'>Loading..</p></div>

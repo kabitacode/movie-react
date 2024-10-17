@@ -9,6 +9,7 @@ import Search from "./pages/search";
 import Detail from "./pages/detail";
 import MovieDetail from "./pages/movieDetail";
 import TvDetail from "./pages/tvDetail";
+import Account from "./pages/account";
 // import SingleMovie from "./Pages/SingleMovie";
 // import Error from "./Pages/Error";
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/tv" element={<TV />} />
           <Route path="/search" element={<Search />} /> 
+          <Route path="/account" element={<Account />} /> 
           <Route path="/detail/:id" element={<Detail />} /> 
           <Route path="/detail-movie/:id" element={<MovieDetail />} /> 
           <Route path="/detail-tv/:id" element={<TvDetail />} /> 

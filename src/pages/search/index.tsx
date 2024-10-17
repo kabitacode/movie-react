@@ -18,7 +18,7 @@ const Search = () => {
     const baseUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${REACT_APP_API_KEY}&page=${page}`;
     const urlSearch = `https://api.themoviedb.org/3/search/multi?api_key=${REACT_APP_API_KEY}&language=en-US&query=${search}&page=${page}&include_adult=false`
     const [url, setUrl] = useState(baseUrl)
-    const { data, loading, error } = useFetch<Result>(url);
+    const { data, loading, error } = useFetch<Result>(url, false);
     const [debounce, setDebounce] = useState('')
 
     // if (loading) return (

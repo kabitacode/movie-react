@@ -11,7 +11,7 @@ type Result = {
 const Genre = ({ genre, setGenre, setPage, type, value, setValue }: any) => {
     const url = `https://api.themoviedb.org/3/genre/${type}/list?api_key=${REACT_APP_API_KEY}&language=en-US`;
 
-    const { data } = useFetch<Result>(url);
+    const { data } = useFetch<Result>(url, false);
     setGenre(data?.genres);
 
 
