@@ -34,3 +34,17 @@
 .card-image {
   height: 25rem !important;
 }
+
+.image-profile {
+  width: 150px;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.button {
+  
+}

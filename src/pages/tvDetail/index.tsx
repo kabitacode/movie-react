@@ -25,8 +25,6 @@ const TvDetail = () => {
         return <div className='items-center flex justify-center'><p className='text-white text-lg'></p></div>
     }
 
-    console.log(data);
-
     return (
         <div className="container mt-5">
             <div className="row center py-5">
