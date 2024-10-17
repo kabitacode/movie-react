@@ -31,7 +31,6 @@ const Detail = () => {
 
     async function fetchPost() {
         setIsFavorite(!isFavorite);
-        console.log(isFavorite);
         
         setIsLoading(true);
         try {

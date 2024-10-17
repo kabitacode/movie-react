@@ -45,7 +45,7 @@ const Account = () => {
     return (
         <div className="container mt-5">
             <div className="row center py-5">
-                <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-decoration-underline head d-flex justify-content-center align-items-center">
+                <div className="col-12 mt-2 fs-1 fw-bold text-decoration-underline head d-flex justify-content-center align-items-center">
                     <i className="fas fa-fire mx-4 text-danger"></i>
                     <h4 className="text-white text-xl font-bold">Account</h4>
                     <i className="fas fa-fire mx-4 text-danger"></i>
@@ -53,7 +53,7 @@ const Account = () => {
             </div>
             <div className="row">
                 <div className="col-3"></div>
-                <div className="col-6 mb-36 mt-3">
+                <div className="col-6 mb-36">
                     <div className="card flex pb-16">
                         <div className="flex flex-col items-center justify-center">
                             <img
