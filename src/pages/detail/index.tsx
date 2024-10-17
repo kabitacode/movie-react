@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useFetch } from '../../hooks/useFetch';
-import { image_300, REACT_APP_API_KEY, unavailable } from '../../config';
+import { image_300, REACT_APP_ACCESS_TOKEN, REACT_APP_ACCOUNT_ID, REACT_APP_API_KEY, unavailable } from '../../config';
 import { useParams } from 'react-router-dom';
+import ButtonProfile from '../../components/buttonProfile';
+import { toast } from 'react-toastify';
 
 type Result = {
     genres: [];
@@ -14,16 +16,55 @@ type Result = {
 
 const Detail = () => {
     const { id } = useParams();
-    const [page, setPage] = useState(1);
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_API_KEY}`
     const { data, loading, error } = useFetch<Result>(url, false);
+    const [isFavorite, setIsFavorite] = useState(true);
 
+    const [post, setPost] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorPost, setErrorPost] = useState('');
 
     if (loading) return <div className='items-center flex justify-center'><p className='text-white text-lg'>Loading..</p></div>
     if (error) {
         return <div className='items-center flex justify-center'><p className='text-white text-lg'></p></div>
     }
-    
+
+    async function fetchPost() {
+        setIsFavorite(!isFavorite);
+        console.log(isFavorite);
+        
+        setIsLoading(true);
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/account/${REACT_APP_ACCOUNT_ID}/favorite`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${REACT_APP_ACCESS_TOKEN}`
+                },
+                body: JSON.stringify({
+                    "movie_id": id,
+                    "media_type": "movie",
+                    "favorite": isFavorite
+                })
+            });
+            const post = await response.json();
+            
+            if (post.status_code == 1) {
+                toast("Succesfully add to favorite!")
+            }
+
+            if (post.status_code == 13) {
+                toast(post.status_message)
+            }
+            
+            setPost(post);
+            setErrorPost('');
+        } catch (error:any) {
+            setErrorPost(error);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     return (
         <div className="container mt-5">
@@ -43,6 +84,11 @@ const Detail = () => {
                             className="pt-3 pb-0 px-3 image-detail"
                             alt={data?.title}
                         />
+                        <div className="flex flex-row justify-between mx-4">
+                            <ButtonProfile name={isFavorite ? 'Add To Favorite' : 'Remove From Favorite'} icon='heart' onClick={() => fetchPost()} />
+                            <div className="mx-1"></div>
+                            <ButtonProfile name='Add To Watchlist' icon='tv' onClick={() => { }} />
+                        </div>
                         <div className="card-body">
                             <div className="p-2 w-28 items-center justify-center mr-2 bg-orange-400 rounded-full">
                                 <p className='text-white text-sm text-center'>{data?.status}</p>

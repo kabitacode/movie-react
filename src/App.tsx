@@ -10,6 +10,9 @@ import Detail from "./pages/detail";
 import MovieDetail from "./pages/movieDetail";
 import TvDetail from "./pages/tvDetail";
 import Account from "./pages/account";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import SingleMovie from "./Pages/SingleMovie";
 // import Error from "./Pages/Error";
 const App = () => {
@@ -24,12 +27,14 @@ const App = () => {
           <Route path="/search" element={<Search />} /> 
           <Route path="/account" element={<Account />} /> 
           <Route path="/detail/:id" element={<Detail />} /> 
-          {/* <Route path="/detail-movie/:id" element={<MovieDetail />} />  */}
+          <Route path="/detail-movie/:id" element={<MovieDetail />} /> 
           <Route path="/detail-tv/:id" element={<TvDetail />} /> 
           {/* <Route path="*" element={<Error />} /> */}
         </Routes>
         <Footer />
+        <ToastContainer />
       </BrowserRouter>
+      
     </div>
   );
 };
