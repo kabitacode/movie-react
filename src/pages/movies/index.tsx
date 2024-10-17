@@ -41,11 +41,8 @@ const Movies = () => {
     };
 
     const onNavigate = (id: string) => {
-        navigate(`/detail-movie/${id}`);
+        navigate(`/detail/${id}`);
     }
-
-    console.log(data);
-
 
     return (
         <div className="container pt-20">

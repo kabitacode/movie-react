@@ -25,8 +25,7 @@ const MovieDetail = () => {
         return <div className='items-center flex justify-center'><p className='text-white text-lg'></p></div>
     }
 
-    console.log(data);
-
+    
     return (
         <div className="container mt-5">
             <div className="row center py-5">
@@ -44,11 +43,11 @@ const MovieDetail = () => {
                             data?.backdrop_path != null ?
                                 <img
                                     src={data?.backdrop_path ? `${image_300}/${data?.backdrop_path}` : unavailable}
-                                    className="pt-3 pb-0 px-3 h-full"
+                                    className="pt-3 pb-0 px-3 image-detail"
                                     alt={data?.title}
                                 /> : <img
                                     src={data?.poster_path ? `${image_300}/${data?.poster_path}` : unavailable}
-                                    className="pt-3 pb-0 px-3 h-full"
+                                    className="pt-3 pb-0 px-3 image-detail"
                                     alt={data?.title}
                                 />
                         }

@@ -40,7 +40,7 @@ const Detail = () => {
                     <div className="card">
                         <img
                             src={data?.backdrop_path ? `${image_300}/${data?.backdrop_path}` : unavailable}
-                            className="pt-3 pb-0 px-3 h-full"
+                            className="pt-3 pb-0 px-3 image-detail"
                             alt={data?.title}
                         />
                         <div className="card-body">

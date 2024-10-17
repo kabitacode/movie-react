@@ -16,7 +16,7 @@ type Result = {
 const TvDetail = () => {
     const { id } = useParams();
     const [page, setPage] = useState(1);
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_API_KEY}`
+    const url = `https://api.themoviedb.org/3/tv/${id}?api_key=${REACT_APP_API_KEY}`
     const { data, loading, error } = useFetch<Result>(url, false);
 
 
@@ -42,16 +42,16 @@ const TvDetail = () => {
                             data?.backdrop_path != null ?
                                 <img
                                     src={data?.backdrop_path ? `${image_300}/${data?.backdrop_path}` : unavailable}
-                                    className="pt-3 pb-0 px-3 h-full"
+                                    className="pt-3 pb-0 px-3 image-detail"
                                     alt={data?.title}
                                 /> : <img
                                     src={data?.poster_path ? `${image_300}/${data?.poster_path}` : unavailable}
-                                    className="pt-3 pb-0 px-3 h-full"
+                                    className="pt-3 pb-0 px-3 image-detail"
                                     alt={data?.title}
                                 />
                         }
                         <div className="card-body">
-                            <div className="p-2 w-28 items-center justify-center mr-2 bg-orange-400 rounded-full">
+                            <div className="p-2 w-32 items-center justify-center mr-2 bg-orange-400 rounded-full">
                                 <p className='text-white text-sm text-center'>{data?.status}</p>
                             </div>
                             <h5 className="text-lg font-bold mb-2 text-center">{data?.title}</h5>
