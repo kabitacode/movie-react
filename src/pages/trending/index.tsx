@@ -57,7 +57,6 @@ const Trending = () => {
           data?.results && data?.results.length > 0 ? data?.results?.map((item: any, index: number) => {
             const { name, title, poster_path, first_air_date, release_date, media_type, id } = item;
             return (
-              <>
                 <button
                   onClick={() => onNavigate(id)}
                   key={index}
@@ -80,7 +79,6 @@ const Trending = () => {
                     </div>
                   </div>
                 </button>
-              </>
             )
           }) : <p className='items-center text-lg text-white'>Data Not Found!</p>
         }

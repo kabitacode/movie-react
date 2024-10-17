@@ -10,10 +10,10 @@ type Result = {
   total_pages: number;
 }
 
-const FavoriteMovie = () => {
+const FavoriteTv = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
-  const url = `https://api.themoviedb.org/3/account/${REACT_APP_ACCOUNT_ID}/favorite/movies?language=en-US&page=${page}`;
+  const url = `https://api.themoviedb.org/3/account/${REACT_APP_ACCOUNT_ID}/favorite/tv?language=en-US&page=${page}`;
 
   const { data, loading, error } = useFetch<Result>(url, true);
 
@@ -35,7 +35,7 @@ const FavoriteMovie = () => {
   };
   
   const onNavigate = (id: string) => {
-    navigate(`/detail/${id}`);
+    navigate(`/detail-tv/${id}`);
   }
 
   return (
@@ -43,7 +43,7 @@ const FavoriteMovie = () => {
       <div className="row py-5">
         <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-decoration-underline head d-flex justify-content-center align-items-center">
           <i className="fas fa-fire mx-4 text-danger"></i>
-          <h4 className="text-white text-xl font-bold">Favorite Movie</h4>
+          <h4 className="text-white text-xl font-bold">Favorite TV</h4>
           <i className="fas fa-fire mx-4 text-danger"></i>
         </div>
         {
@@ -89,4 +89,4 @@ const FavoriteMovie = () => {
   )
 }
 
-export default FavoriteMovie
+export default FavoriteTv
