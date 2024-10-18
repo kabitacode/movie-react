@@ -53,7 +53,7 @@ const Detail = () => {
                 toast("Succesfully add to favorite!")
             }
 
-            if (post.status_code == 13) {
+            if (post.status_code == 13 || post.status_code == 12) {
                 toast(post.status_message)
             }
             
@@ -124,7 +124,7 @@ const Detail = () => {
                         <div className="flex flex-row justify-between mx-4">
                             <ButtonProfile name={isFavorite ? 'Add To Favorite' : 'Remove From Favorite'} icon='heart' onClick={() => fetchPost()} />
                             <div className="mx-1"></div>
-                            <ButtonProfile name={isFavorite ? 'Add To Watchlist' : 'Remove From Watchlist'} icon='tv' onClick={() => fetchPostWatch()} />
+                            <ButtonProfile name={isWatchlist ? 'Add To Watchlist' : 'Remove From Watchlist'} icon='tv' onClick={() => fetchPostWatch()} />
                         </div>
                         <div className="card-body">
                             <div className="p-2 w-28 mb-3 items-center justify-center mr-2 bg-orange-400 rounded-full">
