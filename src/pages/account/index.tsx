@@ -3,6 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { image_300, REACT_APP_ACCOUNT_ID, REACT_APP_API_KEY, unavailable } from '../../config';
 import { useNavigate, useParams } from 'react-router-dom';
 import ButtonProfile from '../../components/buttonProfile';
+import { dataButtonProfile } from '../../data';
 
 type Result = {
     name: string,
@@ -33,8 +34,8 @@ const Account = () => {
             case "watchlist-movie":
                 navigate(`/watchlist-movie`);
                 break;
-            case "watchlist-movie":
-                navigate(`/watchlist-movie`);
+            case "watchlist-tv":
+                navigate(`/watchlist-tv`);
                 break;
 
             default:
@@ -66,10 +67,11 @@ const Account = () => {
                             </div>
                         </div>
                         <div className="card-body px-5">
-                            <ButtonProfile onClick={() => onNavigate('favorite-movie')} name='Favorite Movie' icon='heart' />
-                            <ButtonProfile onClick={() => onNavigate('favorite-tv')} name='Favorite TV' icon='tv' />
-                            <ButtonProfile onClick={() => onNavigate('watchlist-movie')} name='Watchlist Movie' icon='film' />
-                            <ButtonProfile onClick={() => onNavigate('watchlist-tv')} name='Watchlist TV' icon='tv' />
+                            {
+                                dataButtonProfile.map((item, index) => (
+                                    <ButtonProfile onClick={() => onNavigate(item.link)} name={item.name} icon={item.icon} />
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
