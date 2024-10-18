@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FavoriteMovie from "./pages/favoriteMovie";
 import FavoriteTv from "./pages/favoriteTv";
 import WatchlistMovie from "./pages/watchlistMovie";
+import WatchlistTv from "./pages/watchlistTv";
 
 // import SingleMovie from "./Pages/SingleMovie";
 // import Error from "./Pages/Error";
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/favorite-movie" element={<FavoriteMovie />} /> 
           <Route path="/favorite-tv" element={<FavoriteTv />} /> 
           <Route path="/watchlist-movie" element={<WatchlistMovie />} /> 
+          <Route path="/watchlist-tv" element={<WatchlistTv />} /> 
           {/* <Route path="*" element={<Error />} /> */}
         </Routes>
         <Footer />
