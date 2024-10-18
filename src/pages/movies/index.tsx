@@ -41,7 +41,7 @@ const Movies = () => {
     };
 
     const onNavigate = (id: string) => {
-        navigate(`/detail/${id}`);
+        navigate(`/detail-movie/${id}`);
     }
 
     return (
